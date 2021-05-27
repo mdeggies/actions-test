@@ -4,11 +4,10 @@ on: push
 jobs:
   test:
     runs-on: ubuntu-latest
-    env:
-      FOO_JOB: bar on job
     steps:
       - uses: actions/checkout@v1
       - name: Test
-        run: ./env-test.sh
+        run: ./env-test.sh $LICENSE 
         env:
           LICENSE: fuck
+      

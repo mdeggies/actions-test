@@ -1,4 +1,4 @@
 #!/bin/bash
 
-echo "$LICENSE"
-echo "$1"
+echo "LICENSE: $LICENSE"
+echo "CLI: $1"
