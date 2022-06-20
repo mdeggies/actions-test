@@ -1,13 +1,14 @@
-name: Env tests
+name: Run setup-hc-releases
 on: push
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: Test
-        run: ./env-test.sh $LICENSE 
-        env:
-          LICENSE: fuck
+      - name: Setup hc-releases
+        uses: hashicorp/setup-hc-releases@v2
+        with:
+          github-token: ${{ secrets.X_GITHUB_TOKEN }}
+      - name: Check version
+        run: hc-releases version
       
